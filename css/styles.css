@@ -623,6 +623,7 @@ img{
     height: 100%;
     background-color: rgba(33, 150, 243, 0.9);
     opacity: 0;
+    pointer-events: none;
 
     transition: opacity 250ms var(--cubic), transform 250ms var(--cubic);
 }
