@@ -13,6 +13,7 @@
     --card-text-lrpad: 24px;
     --card-text-btpad: 20px;
     --foot-svg-background: rgba(255, 255, 255, 0.1);
+    --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Утіліти */
@@ -156,6 +157,9 @@ img{
     font-size: 14px;
     line-height: calc(16/14);
     color: var(--domain-text-color);
+    position: relative;
+
+    transition: color 250ms var(--cubic);
 }
 
 .active-link{
@@ -164,18 +168,41 @@ img{
     font-weight: 500;
     font-size: 14px;
     line-height: calc(16/14);
+    position: relative;
 }
 
 .active-link::after{
     content: '';
     width: 100%;
+    height: 4px;
+    display: block;
     position: absolute;
+    bottom: -32px;
+    border-radius: 2px;
     background-color: var(--hoover-color);
 }
 
 .nav .link:hover,
 .nav .link:focus{
     color: var(--hoover-color);
+}
+
+.nav .link::after{
+    content: '';
+    width: 100%;
+    height: 4px;
+    display: block;
+    position: absolute;
+    bottom: -32px;
+    border-radius: 2px;
+    background-color: var(--hoover-color);
+    transform: scale(0);
+
+    transition: transform 250ms var(--cubic);
+}
+
+.nav .link:hover::after, .nav .link:focus::after{
+    transform: scale(1);
 }
 
 .down{
@@ -197,6 +224,8 @@ img{
     color: var(--p-color);
     text-decoration: none;
     fill: var(--sgv-icon-color);
+
+    transition: color 250ms var(--cubic);
 }
 
 .header-contacts:hover,
@@ -264,6 +293,8 @@ img{
     padding-right: 32px;
     padding-top: 10px;
     padding-bottom: 10px;
+
+    transition: background-color 250ms var(--cubic);
 }
 
 .button-order:hover,
@@ -447,10 +478,8 @@ img{
     width: 44px;
     align-items: center;
     justify-content: center;
-}
-
-.svg-link{
     fill: var(--sgv-icon-color);
+    transition: background-color 250ms var(--cubic), fill 250ms var(--cubic);
 }
 
 .svg-link:hover, .svg-link:focus{
@@ -495,6 +524,7 @@ img{
     fill: var(--sgv-icon-color);
     border: 1px solid var(--sgv-icon-color);
     border-radius: 4px;
+    transition: border-color 250ms var(--cubic), fill 250ms var(--cubic);
 }
 
 .clients-link:hover, .clients-link:focus{
@@ -513,6 +543,10 @@ img{
     justify-content: center;
 }
 
+.portfolio-buttons .item:not(:last-child){
+    margin-right: 8px;
+}
+
 .portfolio-button{
     font-weight: 500;
     font-size: 16px;
@@ -526,10 +560,8 @@ img{
     padding-bottom: 6px;
     padding-right: 22px;
     padding-left: 22px;
-}
 
-.portfolio-buttons .item:not(:last-child){
-    margin-right: 8px;
+    transition: background-color 250ms var(--cubic), color 250ms var(--cubic), box-shadow 250ms var(--cubic);
 }
 
 .portfolio-button:hover,
@@ -559,6 +591,8 @@ img{
     height: 404px;
     overflow: hidden;
     border: 1px solid #EEEEEE;
+
+    transition: box-shadow 250ms var(--cubic);
 }
 
 .table-div:hover,
@@ -574,10 +608,35 @@ img{
     text-decoration: none;
     color: var(--domain-text-color);
     display: block;
+    overflow: hidden;
 }
 
 .card-thumb{
+    position: relative;
+    /* overflow: hidden; */
+}
 
+.card-overlay{
+    padding: 63px 24px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+
+    transition: opacity 250ms var(--cubic), transform 250ms var(--cubic);
+}
+
+.card-overlay:hover, .card-overlay:focus{
+    opacity: 1;
+    transform: translateY(-101%);
+}
+
+.overlay-text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(28/18);
+    color: var(--default-color);
 }
 
 .card-text{
@@ -608,6 +667,8 @@ img{
     line-height: calc(24/14);
     color: var(--default-color);
     text-decoration: none;
+
+    transition: color 250ms var(--cubic);
 }
 
 .footer-adress:hover,
@@ -684,6 +745,8 @@ img{
     height: 44px;
     width: 44px;
     background-color: var(--foot-svg-background);
+
+    transition: background-color 250ms var(--cubic);
 }
 
 .foot-svg-link:hover,
