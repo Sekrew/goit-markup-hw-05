@@ -613,7 +613,11 @@ img{
 
 .card-thumb{
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.portfolio-img{
+    
 }
 
 .card-overlay{
