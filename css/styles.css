@@ -613,7 +613,7 @@ img{
 
 .card-thumb{
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .portfolio-img{
@@ -621,23 +621,23 @@ img{
 }
 
 .card-overlay{
-    padding: 63px 24px;
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(33, 150, 243, 0.9);
     opacity: 0;
-    pointer-events: none;
+    z-index: 2;
 
     transition: opacity 250ms var(--cubic), transform 250ms var(--cubic);
 }
 
 .card-overlay:hover, .card-overlay:focus{
     opacity: 1;
-    transform: translateY(-101%);
+    transform: translate(0, -100%);
 }
 
 .overlay-text{
+    padding: 63px 24px;
     font-weight: 400;
     font-size: 18px;
     line-height: calc(28/18);
@@ -649,6 +649,7 @@ img{
     padding-right: var(--card-text-lrpad);
     padding-bottom: var(--card-text-btpad);
     padding-top: var(--card-text-btpad);
+    z-index: 5;
 }
 
 .portfolio-text{
