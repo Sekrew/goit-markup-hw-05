@@ -58,7 +58,7 @@
       <section class="solution-sec">
         <div class="container">
           <h1 class="main-text h1-utility">Ефективні рішення для вашого бізнесу</h1>
-          <button type="button" class="button-order">Замовити послугу</button>
+          <button type="button" class="button-order" data-modal-open>Замовити послугу</button>
         </div>
       </section>
       <section class="features-section section">
@@ -443,5 +443,15 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop" data-modal>
+      <div class="modal">
+        <button class="close-button" type="button" data-modal-close>
+          <svg width="11px" height="11px" class="chrest-icon">
+            <use href="./images/sprite.svg#icon-chrest"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
